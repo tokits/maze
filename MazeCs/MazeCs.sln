@@ -1,17 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze.Logic", "Maze.Logic\Maze.Logic.csproj", "{B8BAE1F4-1C72-441A-8B47-8CDE287C9C95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze.Common.Log", "Maze.Common.Log\Maze.Common.Log.csproj", "{B262E499-0749-4CBE-89E3-C5E5987A0FFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze.FormApp", "Maze.FormApp\Maze.FormApp.csproj", "{FACAACF8-2063-468D-ACC3-0E4C0CD9DB25}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze.SilverlightApp", "Maze.SilverlightApp\Maze.SilverlightApp.csproj", "{9BB71487-C542-4B64-B368-1F01DFAF0A80}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze.SilverlightApp.Web", "Maze.SilverlightApp.Web\Maze.SilverlightApp.Web.csproj", "{BB16E9A5-A8EB-4104-A64B-610290A016B0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze.Silverlight.Logic", "Maze.Silverlight.Logic\Maze.Silverlight.Logic.csproj", "{5DB48B69-EACA-40EF-8C0C-B199B1A86221}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permutaion.ConsoleApp", "Permutaion.ConsoleApp\Permutaion.ConsoleApp.csproj", "{B066F06A-9831-454A-913F-5B96E612DA67}"
 EndProject
@@ -33,18 +29,6 @@ Global
 		{FACAACF8-2063-468D-ACC3-0E4C0CD9DB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FACAACF8-2063-468D-ACC3-0E4C0CD9DB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FACAACF8-2063-468D-ACC3-0E4C0CD9DB25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9BB71487-C542-4B64-B368-1F01DFAF0A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9BB71487-C542-4B64-B368-1F01DFAF0A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9BB71487-C542-4B64-B368-1F01DFAF0A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9BB71487-C542-4B64-B368-1F01DFAF0A80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB16E9A5-A8EB-4104-A64B-610290A016B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB16E9A5-A8EB-4104-A64B-610290A016B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB16E9A5-A8EB-4104-A64B-610290A016B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB16E9A5-A8EB-4104-A64B-610290A016B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DB48B69-EACA-40EF-8C0C-B199B1A86221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DB48B69-EACA-40EF-8C0C-B199B1A86221}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DB48B69-EACA-40EF-8C0C-B199B1A86221}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DB48B69-EACA-40EF-8C0C-B199B1A86221}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B066F06A-9831-454A-913F-5B96E612DA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B066F06A-9831-454A-913F-5B96E612DA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B066F06A-9831-454A-913F-5B96E612DA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -52,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91CD58B3-A6B6-4DC4-88A7-36F8D791B16C}
 	EndGlobalSection
 EndGlobal
