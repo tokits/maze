@@ -1,53 +1,106 @@
 ﻿//using Maze.Common.Log;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+/// <summary>
+/// 迷路プログラムのnamespace
+/// </summary>
 namespace Maze.Logic
 {
+    /// <summary>
+    /// 迷路ボード例外クラス
+    /// </summary>
     public class MazeBoardException : Exception
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="message">例外メッセージ</param>
         MazeBoardException(string message)
             : base(message)
         {
         }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="message">例外メッセージ</param>
+        /// <param name="ex">例外オブジェクト</param>
         MazeBoardException(string message, Exception ex)
             : base(message, ex)
         {
         }
     }
 
+    /// <summary>
+    /// 方向列挙体
+    /// </summary>
     public enum Direction
     {
+        /// <summary>
+        /// 12時方向
+        /// </summary>
         North = 0,
+        /// <summary>
+        /// 6時方向
+        /// </summary>
         South,
+        /// <summary>
+        /// 3時方向
+        /// </summary>
         East,
+        /// <summary>
+        /// 9時方向
+        /// </summary>
         West,
+        /// <summary>
+        /// 方向列挙体のカウント
+        /// </summary>
         DirectionCount
     }
 
+    /// <summary>
+    /// 座標構造体(ブロック単位)
+    /// </summary>
     public struct Coordinate
     {
+        /// <summary>
+        /// X座標
+        /// </summary>
         public int X;
+        /// <summary>
+        /// Y座標
+        /// </summary>
         public int Y;
 
+        /// <summary>
+        /// デフォルトコンストラクタ
+        /// </summary>
         static Coordinate()
         {
             Origin = new Coordinate(0, 0);
         }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="x">X座標</param>
+        /// <param name="y">Y座標</param>
         public Coordinate(int x, int y)
         {
             X = x;
             Y = y;
         }
 
+        /// <summary>
+        /// 0オリジン
+        /// </summary>
         public static Coordinate Origin;
     }
 
+    /// <summary>
+    /// 迷路板クラス
+    /// </summary>
     public class MazeBoard
     {
         public int Width { get; private set; }
@@ -95,6 +148,11 @@ namespace Maze.Logic
                                        new [] { (Direction)3, (Direction)2, (Direction)1, (Direction)0 },
                                    };
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="width">迷路板の幅(ブロック単位)</param>
+        /// <param name="height">迷路板の高さ(ブロック単位)</param>
         public MazeBoard(int width, int height)
         {
             Width = width;
@@ -125,6 +183,10 @@ namespace Maze.Logic
             Random = new Random((int)DateTime.Now.Ticks);
         }
 
+        /// <summary>
+        /// 次の位置を返す
+        /// </summary>
+        /// <returns></returns>
         Direction[] GetDrectionNextSet()
         {
 #if false
@@ -145,6 +207,12 @@ namespace Maze.Logic
 #endif
         }
 
+        /// <summary>
+        /// 有効なセルか？
+        /// </summary>
+        /// <param name="coordinate">座標</param>
+        /// <param name="dir"></param>
+        /// <returns></returns>
         bool IsValidCell(Coordinate coordinate, Direction dir)
         {
             int x = coordinate.X;
@@ -249,6 +317,12 @@ namespace Maze.Logic
             return (Cells[x][y].CellStatus == CellStatus.Block || Cells[x][y].CellStatus == CellStatus.End);
         }
 
+        /// <summary>
+        /// 有効な回答せるか？
+        /// </summary>
+        /// <param name="coordinate">座標</param>
+        /// <param name="dir">方向</param>
+        /// <returns></returns>
         bool IsAnswerValidCell(Coordinate coordinate, Direction dir)
         {
             int x = coordinate.X;
@@ -261,6 +335,11 @@ namespace Maze.Logic
             return Cells[x][y].CellStatus == CellStatus.Path || Cells[x][y].CellStatus == CellStatus.End;
         }
 
+        /// <summary>
+        /// ゴールのセルか？
+        /// </summary>
+        /// <param name="coordinate">座標</param>
+        /// <returns></returns>
         bool IsEndCell(Coordinate coordinate)
         {
             int x = coordinate.X;
@@ -274,6 +353,10 @@ namespace Maze.Logic
             return (Cells[x][y].CellStatus == CellStatus.End);
         }
 
+        /// <summary>
+        /// 迷路作成(内部メソッド)
+        /// </summary>
+        /// <param name="coordinate"></param>
         void InnerCreate(Coordinate coordinate)
         {
             try
@@ -336,6 +419,10 @@ namespace Maze.Logic
             }
         }
 
+        /// <summary>
+        /// 迷路の回答作成(内部メソッド)
+        /// </summary>
+        /// <param name="coordinate"></param>
         void InnerAnswer(Coordinate coordinate)
         {
             try
@@ -416,6 +503,9 @@ namespace Maze.Logic
             }
         }
 
+        /// <summary>
+        /// 迷路作成の開始
+        /// </summary>
         public void CreationStart()
         {
             IsCompleted = false;
@@ -431,6 +521,10 @@ namespace Maze.Logic
             //}
         }
 
+        /// <summary>
+        /// 迷路作成
+        /// </summary>
+        /// <returns></returns>
         public bool CreationNext()
         {
             if (CoordinateStack.Count > 0)
@@ -444,6 +538,9 @@ namespace Maze.Logic
             }
         }
 
+        /// <summary>
+        /// 迷路回答の開始
+        /// </summary>
         public void AnswerStart()
         {
             IsAnswerCompleted = false;
@@ -453,6 +550,10 @@ namespace Maze.Logic
             CoordinateStack.Push(cord);
         }
 
+        /// <summary>
+        /// 迷路の回答の次を得る
+        /// </summary>
+        /// <returns></returns>
         public bool AnswerNext()
         {
             if (IsAnswerCompleted == false && CoordinateStack.Count > 0)
@@ -466,6 +567,9 @@ namespace Maze.Logic
             }
         }
 
+        /// <summary>
+        /// 迷路の回答をクリア
+        /// </summary>
         public void AnswerClear()
         {
             for (int i = 0; i < Cells.Length; i++)

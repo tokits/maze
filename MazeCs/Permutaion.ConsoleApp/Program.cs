@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+/// <summary>
+/// 順列を求めるプログラムのnamespace
+/// </summary>
 namespace Permutaion.ConsoleApp
 {
-    class Program
+    /// <summary>
+    /// アプリケーションのメインクラス
+    /// </summary>
+    static class Program
     {
+        /// <summary>
+        /// 順列生成（パターン①）
+        /// </summary>
         class Permutaions1
         {
             class Pair
@@ -73,6 +80,9 @@ namespace Permutaion.ConsoleApp
             }
         }
 
+        /// <summary>
+        /// 順列生成（パターン②）
+        /// </summary>
         class Permutaions2
         {
             int size;
@@ -126,6 +136,9 @@ namespace Permutaion.ConsoleApp
             }
         }
 
+        /// <summary>
+        /// 順列生成（パターン③）
+        /// </summary>
         class Permutaions3
         {
             int size;
@@ -202,6 +215,9 @@ namespace Permutaion.ConsoleApp
             }
         }
 
+        /// <summary>
+        /// 順列生成（パターン④）
+        /// </summary>
         class Permutaions4
         {
             class Pair
@@ -267,6 +283,10 @@ namespace Permutaion.ConsoleApp
             }
         }
 
+        /// <summary>
+        /// Mainメソッド
+        /// </summary>
+        /// <param name="args">コマンドライン引数</param>
         static void Main(string[] args)
         {
 #if false

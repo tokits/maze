@@ -1,27 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-//using Maze.SilverLight.Logic;
+﻿//using Maze.SilverLight.Logic;
 using Maze.Logic;
+using System.Drawing;
+using System.Windows.Forms;
 
+/// <summary>
+/// 迷路プログラムのnamespace
+/// </summary>
 namespace Maze.FormApp
 {
+    /// <summary>
+    /// 迷路プログラムのメインウィンドウ
+    /// </summary>
     public partial class MazeForm : Form
     {
+        /// <summary>
+        /// 迷路の横ブロック数
+        /// </summary>
         const int MazeWidth = 40;
+        /// <summary>
+        /// 迷路の縦ブロック数
+        /// </summary>
         const int MazeHieght = 30;
         //const int MazeWidth = 100;
         //const int MazeHieght = 80;
 
+        /// <summary>
+        /// 迷路ロジック
+        /// </summary>
         MazeBoard MazeBoard = new MazeBoard(MazeWidth, MazeHieght);
 
-
+        /// <summary>
+        /// 迷路描画用のブラシ
+        /// </summary>
         //enum CellStatus
         //{
         //    Wall = 0,
@@ -42,10 +52,18 @@ namespace Maze.FormApp
             Brushes.White
         };
 
-
+        /// <summary>
+        /// 迷路生成用タイマ
+        /// </summary>
         Timer createMazeTimer = new Timer();
+        /// <summary>
+        /// 迷路回答用タイマ
+        /// </summary>
         Timer answerMazeTimer = new Timer();
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public MazeForm()
         {
             InitializeComponent();
@@ -127,6 +145,10 @@ namespace Maze.FormApp
             this.Resize += (s, e) => MazeForm_Resize();
         }
 
+        /// <summary>
+        /// mazePictureBoxのPaintイベントハンドラ
+        /// </summary>
+        /// <param name="e"></param>
         private void mazePictureBox_Paint(PaintEventArgs e)
         {
             if (MazeBoard == null) return;
@@ -152,6 +174,9 @@ namespace Maze.FormApp
             }
         }
 
+        /// <summary>
+        /// メインウィンドウのResizeイベントハンドラ
+        /// </summary>
         private void MazeForm_Resize()
         {
             mazePictureBox.Invalidate();
